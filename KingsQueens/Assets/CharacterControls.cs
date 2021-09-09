@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterControls : MonoBehaviour
 {
     public Animator anim;
+
+    public CharacterController controller;
+    public float moveSpeed = 6f;
+
+    public Camera cam;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +23,18 @@ public class CharacterController : MonoBehaviour
     {
         Walk();
         Fire();
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+
+        if(direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            cam.transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+
+            controller.Move(direction * moveSpeed * Time.deltaTime);
+        }
     }
 
     public void Walk()
