@@ -1733,6 +1733,7 @@ GameObject:
   - component: {fileID: 1069325183}
   - component: {fileID: 1069325184}
   - component: {fileID: 1069325182}
+  - component: {fileID: 1069325185}
   m_Layer: 0
   m_Name: Pawn
   m_TagString: Untagged
@@ -1752,6 +1753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5a7d09e2c650b4483ee871371eca2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 1069325185}
   moveSpeed: 5
 --- !u!4 &1069325183
 Transform:
@@ -1786,6 +1788,25 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: -2.55, z: 0}
+--- !u!95 &1069325185
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069325181}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 078b6dc051a55854cbc0c8c9d9c10258, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1118110814
 GameObject:
   m_ObjectHideFlags: 0

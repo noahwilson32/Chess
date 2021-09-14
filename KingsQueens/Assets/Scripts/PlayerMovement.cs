@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
-    private Animator anim;
+    public Animator anim;
     public float moveSpeed = 5f;
     private void Awake()
     {
@@ -21,9 +21,13 @@ public class PlayerMovement : MonoBehaviour
 
         controller.SimpleMove(movement * moveSpeed);
 
-        if(horizontal > .01f || horizontal < -.1f)
+        if(horizontal != 0)
         {
             anim.SetBool("isWalk", true);
+        }
+        else
+        {
+            anim.SetBool("isWalk", false);
         }
         
     }
